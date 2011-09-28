@@ -1,0 +1,24 @@
+import sys, os, string, commands
+
+(python, libdir, voscmd, fscmd, tokenscmd, ptscmd) = sys.argv[1:]
+python = '#!' + python
+
+for line in sys.stdin.readlines():
+    outline = string.rstrip(line)
+    if string.find(line, '::PYTHON::') >= 0:
+        outline = string.replace(outline, '::PYTHON::', python)
+    elif string.find(line, '::LIBDIR::') >= 0:
+        outline = string.replace(outline, '::LIBDIR::', libdir)
+    elif string.find(line, '::VOS::') >= 0:
+        outline = string.replace(outline, '::VOS::', voscmd)
+    elif string.find(line, '::FS::') >= 0:
+        outline = string.replace(outline, '::FS::', fscmd)
+    elif string.find(line, '::TOKENS::') >= 0:
+        outline = string.replace(outline, '::TOKENS::', tokenscmd)
+    elif string.find(line, '::PTS::') >= 0:
+        outline = string.replace(outline, '::PTS::', ptscmd)
+    print outline
+
+#-----------------------------------------------------------------------------#
+#                (c) Copyright 2000 The MITRE Corporation                     #
+#-----------------------------------------------------------------------------#

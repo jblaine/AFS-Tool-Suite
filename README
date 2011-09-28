@@ -1,0 +1,124 @@
+
+                         "AFS Tool Suite" (ATS)
+                             Jeff Blaine
+                (c) Copyright 2000 The MITRE Corporation
+
+INTRO
+BUILDING
+  Required
+  Optional
+HISTORY
+CONTACT
+
+INTRO
+=====
+
+    This package contains a suite of scripts (mostly Python) for use in an
+    AFS (Andrew File System) cell and a Python library of AFS-related
+    classes and utility functions.  All of ATS was developed under UNIX
+    and it's likely that's all it will run under.  AFS Tool Suite is:
+
+        vrm                - Given a mountpoint, remove the mountpoint and
+                             the volume mounted there (from disk).
+
+        volsanity          - Volume sanity checking.  Multi-purpose, time
+                             consuming, and brute force:
+                               1.  Does a 'vos examine' on every entry in the
+                                   VLDB and reports on volumes which could not
+                                   be examined properly.  This will find some
+                                   problems with your VLDB if they exist.
+                               2.  Does a 'vos examine' on every volume found
+                                   via 'vos listvol' on all server:/partition 
+                                   pairs and reports on volumes which could not
+                                   be examined properly.  This will find some
+                                   problems with stray volumes sitting on disk
+                                   if they exist.
+                             This should probably been run once per week
+                             _maximum_ or on a whim now and then.
+
+        volspot            - Query an "AFS space usage policy" database
+                             for information about where (server:/partition)
+                             certain types of volumes should exist.  Also,
+                             if requested, report back on only the server
+                             and partition pairs which have N Kbytes free.
+                             And finally, if specified, run in CMU "Site"
+                             emulation mode and only spit out one of the
+                             valid sites with N Kbytes free (random pick for
+                             distributing volumes on a pool of server:/parts). 
+
+        repcheck           - Configured with a set of regular expressions,
+                             which represent volume name patterns expected
+                             to be replicated, examines the contents of the
+                             VLDB to see if volumes actually are replicated.
+
+        volspot_check      - Query an "AFS space usage policy" database
+                             for information about where (server:/partition)
+                             certain types of volumes should exist and then
+                             check to make sure that no sites have volumes on
+                             them that should not be there.  Report if volumes
+                             are found out of place.
+
+        pts_checker        - Simple script to find PTS users which are in
+                             your PTS database but not in you NIS passwd map,
+                             and PTS host entries which are in your PTS
+                             database but not in your NIS hosts map.
+
+        quota_partinfo     - Like 'vos partinfo <server> <partition>' but
+                             instead of reporting on K disk space free, it
+                             reports on K uncommitted quota-wise (REAL
+                             and proper free AFS space).  Optionally caches
+                             results (see the top of the script)
+
+        "libraries"        - A set of Python classes and functions for working
+                             with user-level AFS commands and their output.
+
+BUILDING
+========
+
+    Required
+    --------
+
+        1.  Read the file LICENSE
+
+        2.  If you don't already have a Python 1.5 (or higher) interpreter
+            installed, get and compile Python (www.python.org)
+
+        3.  Edit the top of the Makefile and set all variables up to the
+            marker labeled 'END OF CONFIGURATION INFORMATION'
+
+        4.  Run the command: make install
+
+    Optional
+    --------
+
+        1.  Copy docs/* to a web-server-accessible area for reference.
+
+        2.  If you plan to use 'volspot' and/or 'volspot_check', you
+            need to set up an 'AFS Space Usage Policy' database (an
+            ASCII file) and also modify those 3 scripts to point to that
+            database.  Please see docs/SpacePolicyDB.html and then
+            hand-edit 'volspot' and 'volspot_check'
+
+        3.  If you plan to use lib/afs_stats.py's GIFReport class,
+            you will need gnuplot installed
+
+HISTORY
+=======
+
+    The first version of AFS Tool Suite was written by Jeff Blaine
+    at The MITRE Corporation.  At that time it consisted of around
+    1800 lines of Python code.
+
+    In December of 2000, The MITRE Corporation agreed to let Jeff
+    release the software outside of MITRE under the GNU Public License.
+
+    The MITRE Corporation retains the copyright to AFS Tool Suite.
+
+CONTACT
+=======
+
+    Home page:         http://www.sourceforge.net/projects/ats/
+
+    From the ATS homepage you will find a list of the current developers,
+    you can submit bug reports, join any mailing lists that exist concerning
+    ATS, etc.

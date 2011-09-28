@@ -1,0 +1,19 @@
+NON-BUG NOTES
+=============
+
+RO volumes on the same partition as their RW, as well as BK volumes,
+are not counted when using quota_partinfo or volspot --method=quotapartinfo
+
+BUGS
+====
+
+Need file locking for the cache!
+
+An error should be thrown in quota_partinfo when the host or partition is
+not found.  Also, the exit code should be nonzero.  It's very likely that
+a lot of the scripts are quiet like this upon error.
+
+With caching enabled, quota_partinfo and volspot --method=quotapartinfo
+will silently fail to update the cache area if the querying user does
+not have write permissions to the area.  This is actually not a bug in
+itself, but it seems it could be reported somehow.

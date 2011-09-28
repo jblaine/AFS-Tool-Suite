@@ -1,0 +1,593 @@
+
+	            <HTML>
+		    <HEAD>
+		    <TITLE>Docs::Project::ATS</TITLE
+		    <META NAME="KEYWORDS" CONTENT="ATS, docs, documentation, python, doc-tool">
+		    </HEAD>
+		    <BODY BGCOLOR=#FFFFFF>
+		 <A NAME="afs_paths"><H2>Module: afs_paths</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><A NAME="afs_pts"><H2>Module: afs_pts</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_pts.PTSPrivacyFlags"><I>class</I>&nbsp;<B>PTSPrivacyFlags</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_pts.PTSPrivacyFlags.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(flagstring='') <P><UL><P> <P><I>C-struct-like class to hold PTS Privacy Flags
+</I></P>
+<P>
+<LI TYPE=BULLET> flagstring - A 5-character string representing the privacy
+              flags (as found in the output of pts examine)
+ </P></UL></P></P><P><A NAME="afs_pts.PTSPrivacyFlags.setFlagValue">-&nbsp;<I>method</I>&nbsp;<B>setFlagValue</B>&nbsp;(flag, value) <P><UL><P> <P><I>Set a PTS Privacy flag on or off
+</I></P>
+<P>
+<LI TYPE=BULLET> flag - The single-letter flag to change
+<LI TYPE=BULLET> value - 0 or 1 (off or on respectively)
+ </P></UL></P></P><P><A NAME="afs_pts.PTSPrivacyFlags.getFlagValue">-&nbsp;<I>method</I>&nbsp;<B>getFlagValue</B>&nbsp;(flag) <P><UL><P> <P><I>Get a flag's current value
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSPrivacyFlags.__repr__">-&nbsp;<I>method</I>&nbsp;<B>__repr__</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI><LI TYPE=SQUARE><A NAME="afs_pts.PTSExamineData"><I>class</I>&nbsp;<B>PTSExamineData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_pts.PTSExamineData.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(name) <P><UL><P> <P><I>Represent some 'pts examine' data.
+</I></P>
+<P>
+<LI TYPE=BULLET> name - The PTS name to lookup in the PTS database
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.load">-&nbsp;<I>method</I>&nbsp;<B>load</B>&nbsp;() <P><UL><P> <P><I>Load the data based on the PTS name passed to the constructor
+            when the object was instantiated.
+</I></P>
+<P>
+            Returns 0 on failure, 1 on successful load and parse
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData._loadraw">-&nbsp;<I>method</I>&nbsp;<B>_loadraw</B>&nbsp;() <P><UL><P> <P><I>Call 'pts examine' and actually load the data we need.  Called by
+            load().  Do not call this yourself.
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.printReport">-&nbsp;<I>method</I>&nbsp;<B>printReport</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.getName">-&nbsp;<I>method</I>&nbsp;<B>getName</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.getID">-&nbsp;<I>method</I>&nbsp;<B>getID</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.getOwner">-&nbsp;<I>method</I>&nbsp;<B>getOwner</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.getCreator">-&nbsp;<I>method</I>&nbsp;<B>getCreator</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.getPrivacyFlags">-&nbsp;<I>method</I>&nbsp;<B>getPrivacyFlags</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.getMembership">-&nbsp;<I>method</I>&nbsp;<B>getMembership</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_pts.PTSExamineData.getGroupQuota">-&nbsp;<I>method</I>&nbsp;<B>getGroupQuota</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI></UL><A NAME="afs_quotapartinfo"><H2>Module: afs_quotapartinfo</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_quotapartinfo.QuotaPartinfoEntry"><I>class</I>&nbsp;<B>QuotaPartinfoEntry</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_quotapartinfo.QuotaPartinfoEntry.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(partition, kfree, ktotaldisk, kuncommitted) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoEntry.getKFree">-&nbsp;<I>method</I>&nbsp;<B>getKFree</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoEntry.getPartition">-&nbsp;<I>method</I>&nbsp;<B>getPartition</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoEntry.getKUncommitted">-&nbsp;<I>method</I>&nbsp;<B>getKUncommitted</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoEntry.getKTotalDisk">-&nbsp;<I>method</I>&nbsp;<B>getKTotalDisk</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoEntry.setCached">-&nbsp;<I>method</I>&nbsp;<B>setCached</B>&nbsp;(value=1) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoEntry.isCached">-&nbsp;<I>method</I>&nbsp;<B>isCached</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI><LI TYPE=SQUARE><A NAME="afs_quotapartinfo.QuotaPartinfoData"><I>class</I>&nbsp;<B>QuotaPartinfoData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(server, partition='') <P><UL><P> <P><I>Represent something like 'vos partinfo' but show K uncommitted
+            instead of K free on disk.
+</I></P>
+<P>
+<LI TYPE=BULLET> server - An AFS file server hostname
+<LI TYPE=BULLET> partition - A partition on server (optional)
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.load">-&nbsp;<I>method</I>&nbsp;<B>load</B>&nbsp;(cache_dir=None, cache_threshold_hours=0) <P><UL><P> <P><I>Load the data based on the info passed to the constructor
+            when the object was instantiated.  If cache_dir is specified,
+            then try to read data from cache and use it if it exists and
+            is not more than cache_threshold_hours old.  Also, if cache_dir
+            is specified and the cache was not used, cache the new data
+            when done.
+</I></P>
+<P>
+            Returns 0 on failure, 1 on successful load and parse
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.printReport">-&nbsp;<I>method</I>&nbsp;<B>printReport</B>&nbsp;(verbose=0) <P><UL><P> <P><I>Print an ASCII report to standard output
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.getServer">-&nbsp;<I>method</I>&nbsp;<B>getServer</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.getPartition">-&nbsp;<I>method</I>&nbsp;<B>getPartition</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.addEntry">-&nbsp;<I>method</I>&nbsp;<B>addEntry</B>&nbsp;(entry) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.getEntries">-&nbsp;<I>method</I>&nbsp;<B>getEntries</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.loadFromCache">-&nbsp;<I>method</I>&nbsp;<B>loadFromCache</B>&nbsp;(cache_file) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_quotapartinfo.QuotaPartinfoData.writeCache">-&nbsp;<I>method</I>&nbsp;<B>writeCache</B>&nbsp;(cache_file) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI></UL><A NAME="afs_site"><H2>Module: afs_site</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_site.Site"><I>class</I>&nbsp;<B>Site</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_site.Site.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(server, partition) <P><UL><P> <P><I>C-struct-like class to represent what makes up an AFS 'site'
+</I></P>
+<P>
+<LI TYPE=BULLET> server - A hostname
+<LI TYPE=BULLET> partition - An AFS 'vice' partition name
+ </P></UL></P></P><P><A NAME="afs_site.Site.getServer">-&nbsp;<I>method</I>&nbsp;<B>getServer</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_site.Site.getPartition">-&nbsp;<I>method</I>&nbsp;<B>getPartition</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_site.Site.__repr__">-&nbsp;<I>method</I>&nbsp;<B>__repr__</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI></UL><A NAME="afs_space_usage_db"><H2>Module: afs_space_usage_db</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_space_usage_db.SpaceUsageDatabase"><I>class</I>&nbsp;<B>SpaceUsageDatabase</B>&nbsp;() <P><UL><P> <P><I>Actions and data associated with a ConfigParser format file set up
+        to act as our AFS Space Usage Policy Database.
+</I></P>
+ </P></UL></P><UL><P><A NAME="afs_space_usage_db.SpaceUsageDatabase.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(configfilename=configfile) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_space_usage_db.SpaceUsageDatabase.isReplicated">-&nbsp;<I>method</I>&nbsp;<B>isReplicated</B>&nbsp;(category) <P><UL><P> <P><I>Find out whether or not a certain category of volume is supposed
+            to be replicated or not.  Returns 1 if replicated, 0 if not.
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_space_usage_db.SpaceUsageDatabase.getSiteValues">-&nbsp;<I>method</I>&nbsp;<B>getSiteValues</B>&nbsp;(category) <P><UL><P> <P><I>Get all non internal option values and return a list of them
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_space_usage_db.SpaceUsageDatabase.getRegexp">-&nbsp;<I>method</I>&nbsp;<B>getRegexp</B>&nbsp;(category) <P><UL><P> <P><I>Get the regexp value for a given category of volume.  Returns
+</I></P>
+<LI TYPE=BULLET> string.
+ </P></UL></P></P><P><A NAME="afs_space_usage_db.SpaceUsageDatabase.getSections">-&nbsp;<I>method</I>&nbsp;<B>getSections</B>&nbsp;() <P><UL><P> <P><I>Return a list of category names found
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_space_usage_db.SpaceUsageDatabase.getOptions">-&nbsp;<I>method</I>&nbsp;<B>getOptions</B>&nbsp;(category) <P><UL><P> <P><I>Return a list of option names for the specified category
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_space_usage_db.SpaceUsageDatabase.getValue">-&nbsp;<I>method</I>&nbsp;<B>getValue</B>&nbsp;(category, option) <P><UL><P> <P><I>Fetch a value for the option specified in category
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_space_usage_db.SpaceUsageDatabase.getVolspotSites">-&nbsp;<I>method</I>&nbsp;<B>getVolspotSites</B>&nbsp;(category, randomone, size, method='vospartinfo', cache_dir=None, cache_threshold_hours=0) <P><UL><P> <P><I>Query the AFS Usage Policy Database in volspot-fashion
+</I></P>
+<P>
+<LI TYPE=BULLET> category - The type of volume to look up
+<LI TYPE=BULLET> randomone - A boolean flag stating whether or not a single site
+              should be returned (pass in 1 for randomone) or not (pass in 0)
+<LI TYPE=BULLET> size - The amount of space needed.  Pass in 0 if you want all
+              sites returned, regardless of free space.
+<LI TYPE=BULLET> method - The means by which free space is calculated.  Can be one
+              of two strings: 'vospartinfo' or 'quotapartinfo'.  Specifying
+              'vospartinfo' will use a simple 'vos partinfo' command to see how
+              much free space is on the site.  Specifying 'quotapartinfo' will
+              use the actual uncommitted space (quota-wise) as free space.
+<LI TYPE=BULLET> cache_dir - The cache directory to use for quotapartinfo data
+<LI TYPE=BULLET> cache_threshold_hours - The number of hours before the cache
+              files are not used.
+ </P></UL></P></P></UL></LI></UL><A NAME="afs_stats"><H2>Module: afs_stats</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_stats.Entry"><I>class</I>&nbsp;<B>Entry</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_stats.Entry.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(YYYYMMDD, server, partition, kdisksize, kfree, perccomm) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI><LI TYPE=SQUARE><A NAME="afs_stats.ReportGenerator"><I>class</I>&nbsp;<B>ReportGenerator</B>&nbsp;() <P><UL><P> <P><I>Interface class (should only be sub-classed and never instantiated).
+        Constructor expects the following args:
+</I></P>
+<LI TYPE=BULLET> statsroot: the top-level stats directory
+<LI TYPE=BULLET> server: the server whose stats we are reporting on
+<LI TYPE=BULLET> files_glob: the shell pattern (glob) to match when figuring out
+                      which files to incorporate into this report.  This
+                      should be relative to statsroot, so should not
+                      look anything like a full pathname with /'s.
+ </P></UL></P><UL><P><A NAME="afs_stats.ReportGenerator.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(statsroot, server, files_glob) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.initData">-&nbsp;<I>method</I>&nbsp;<B>initData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.setData">-&nbsp;<I>method</I>&nbsp;<B>setData</B>&nbsp;(data) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.getData">-&nbsp;<I>method</I>&nbsp;<B>getData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.setStatsRoot">-&nbsp;<I>method</I>&nbsp;<B>setStatsRoot</B>&nbsp;(statsroot) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.getStatsRoot">-&nbsp;<I>method</I>&nbsp;<B>getStatsRoot</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.setServer">-&nbsp;<I>method</I>&nbsp;<B>setServer</B>&nbsp;(server) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.getServer">-&nbsp;<I>method</I>&nbsp;<B>getServer</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.setFilesGlob">-&nbsp;<I>method</I>&nbsp;<B>setFilesGlob</B>&nbsp;(files_glob) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.getFilesGlob">-&nbsp;<I>method</I>&nbsp;<B>getFilesGlob</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.loadData">-&nbsp;<I>method</I>&nbsp;<B>loadData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.loadFile">-&nbsp;<I>method</I>&nbsp;<B>loadFile</B>&nbsp;(file) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.ReportGenerator.printData">-&nbsp;<I>method</I>&nbsp;<B>printData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI><LI TYPE=SQUARE><A NAME="afs_stats.GIFReport"><I>class</I>&nbsp;<B>GIFReport</B>&nbsp;(ReportGenerator) <P><UL><P> <P><I>Generate a GIF report for a partition on a server.  If no output file
+        name is set with the setOutFilename() method before calling printData(),
+        the output will go to a file named </I></P>
+<server>-<partition>.gif. Constructor
+        expects the following args:
+<LI TYPE=BULLET> statsroot: the top-level directory containing server-named subdirs
+<LI TYPE=BULLET> server: the server whose stats we are reporting on
+<LI TYPE=BULLET> partition: the server's partition whose stats we are reporting on
+<LI TYPE=BULLET> files_glob: the shell pattern (glob) to match when figuring out
+                      wfiles to incorporate into this report.  This
+                      should be relative to statsroot/server, so should not
+                      look anything like a full pathname with /'s.
+<LI TYPE=BULLET> gnuplot: the full path to gnuplot
+<LI TYPE=BULLET> outfile: the filename (full path okay) to store the output GIF in
+<P>
+        REQUIRES: gnuplot
+ </P></UL></P><UL><P><A NAME="afs_stats.GIFReport.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(statsroot, server, partition, files_glob, gnuplot='/usr/local/bin/gnuplot', outfile=None) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.GIFReport.setGnuplot">-&nbsp;<I>method</I>&nbsp;<B>setGnuplot</B>&nbsp;(gplocation) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.GIFReport.getGnuplot">-&nbsp;<I>method</I>&nbsp;<B>getGnuplot</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.GIFReport.setOutFilename">-&nbsp;<I>method</I>&nbsp;<B>setOutFilename</B>&nbsp;(fname) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.GIFReport.getOutFilename">-&nbsp;<I>method</I>&nbsp;<B>getOutFilename</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.GIFReport.setPartition">-&nbsp;<I>method</I>&nbsp;<B>setPartition</B>&nbsp;(partition) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.GIFReport.getPartition">-&nbsp;<I>method</I>&nbsp;<B>getPartition</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.GIFReport.printData">-&nbsp;<I>method</I>&nbsp;<B>printData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI><LI TYPE=SQUARE><A NAME="afs_stats.MostRecentASCIIReport"><I>class</I>&nbsp;<B>MostRecentASCIIReport</B>&nbsp;(ReportGenerator) <P><UL><P> <P><I>Generate an ASCII text report from the most recent stats.  Constructor
+        expects the following args:
+</I></P>
+<LI TYPE=BULLET> ofd: output file descriptor
+<LI TYPE=BULLET> statsroot: the top-level directory containing server-named subdirs
+<LI TYPE=BULLET> server: the server whose stats we are reporting on
+<LI TYPE=BULLET> files_glob: the shell pattern (glob) to match when figuring out
+                      which files to incorporate into this report.  This
+                      should be relative to statsroot/server, so should not
+                      look anything like a full pathname with /'s.
+ </P></UL></P><UL><P><A NAME="afs_stats.MostRecentASCIIReport.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(statsroot, server, files_glob, ofd=None) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.MostRecentASCIIReport.setPercentCommittedThreshold">-&nbsp;<I>method</I>&nbsp;<B>setPercentCommittedThreshold</B>&nbsp;(perccom) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.MostRecentASCIIReport.getPercentCommittedThreshold">-&nbsp;<I>method</I>&nbsp;<B>getPercentCommittedThreshold</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.MostRecentASCIIReport.setKFreeThreshold">-&nbsp;<I>method</I>&nbsp;<B>setKFreeThreshold</B>&nbsp;(kb) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.MostRecentASCIIReport.getKFreeThreshold">-&nbsp;<I>method</I>&nbsp;<B>getKFreeThreshold</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.MostRecentASCIIReport.setOutputFD">-&nbsp;<I>method</I>&nbsp;<B>setOutputFD</B>&nbsp;(ofd) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.MostRecentASCIIReport.getOutputFD">-&nbsp;<I>method</I>&nbsp;<B>getOutputFD</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_stats.MostRecentASCIIReport.printData">-&nbsp;<I>method</I>&nbsp;<B>printData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI></UL><UL><LI TYPE=CIRCLE><A NAME="afs_stats.DEBUG"><I>function</I>&nbsp;<B>DEBUG</B>&nbsp;(message) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI></UL><A NAME="afs_utils"><H2>Module: afs_utils</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=CIRCLE><A NAME="afs_utils.GetFileServers"><I>function</I>&nbsp;<B>GetFileServers</B>&nbsp;(use_cached=1) <P><UL><P> <P><I>Examine the whole VLDB to enumerate the file servers in existence.
+        Returns a list of fileserver hostnames.
+</I></P>
+<P>
+<LI TYPE=BULLET> use_cached - A 0 (no) or a 1 (yes) indicating whether or not to
+                       use a cached copy of the whole VLDB if one exists.
+                       This is OPTIONAL.  The default is 1 (yes).
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.CheckQuotas"><I>function</I>&nbsp;<B>CheckQuotas</B>&nbsp;(vldbdata, warn=1, highmark=98) <P><UL><P> <P><I>Check all volumes represented by vldbdata (passed in).  If the
+        volume's quota is unlimited, report a warning.  Optionally (see
+        argument descriptions below), warn if the percentage quota used
+        is over highmark (passed in).
+</I></P>
+<P>
+        Not really intended to be used as a utility function...more a
+        fully-functioning script that I didn't want to break out into a
+        script (as witnessed by the fact that it uses 'print')
+<P>
+<LI TYPE=BULLET> vldbdata - A VLDBData object instace
+<LI TYPE=BULLET> warn - A flag stating whether you want to warn about volumes that are
+                 over a certain percentage of usage.  1 or 0.
+<LI TYPE=BULLET> highmark - Only meaningful if you turned on warnings: The
+                     percentage at which to warn about a quota.
+                     Volumes that are using more than this percentage
+                     of their allocated quota will be flagged for warning.
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.VLDB_VosExamine"><I>function</I>&nbsp;<B>VLDB_VosExamine</B>&nbsp;(use_cached=1) <P><UL><P> <P><I>Run a 'vos examine' on ever entry in the entire VLDB and
+        print an error for volumes that could not be examined properly
+</I></P>
+<P>
+        Not really intended to be used as a utility function...more a
+        fully-functioning script that I didn't want to break out into a
+        script (as witnessed by the fact that it uses 'print')
+<P>
+<LI TYPE=BULLET> use_cached - A 0 (no) or a 1 (yes) indicating whether or not to
+                       use a cached copy of the whole VLDB if one exists.
+                       This is OPTIONAL.  The default is 1 (yes).
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.VosListvol_VosExamine_Check"><I>function</I>&nbsp;<B>VosListvol_VosExamine_Check</B>&nbsp;() <P><UL><P> <P><I>Report on volumes that exist on disk but not in the VLDB.  Might find
+        other problems as well.  Returns nothing.
+</I></P>
+<P>
+        Not really intended to be used as a utility function...more a
+        fully-functioning script that I didn't want to break out into a
+        script (as witnessed by the fact that it uses 'print')
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.FullPartitionName"><I>function</I>&nbsp;<B>FullPartitionName</B>&nbsp;(pname) <P><UL><P> <P><I>Given a partition name of any form, return it as a standard full
+        partition name in /vicepNNNN form.
+</I></P>
+<P>
+<LI TYPE=BULLET> pname - A string representing a partition name in some decent form
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.VosRelease"><I>function</I>&nbsp;<B>VosRelease</B>&nbsp;(vname) <P><UL><P> <P><I>Release a replicated AFS volume
+</I></P>
+<P>
+<LI TYPE=BULLET> vname - The volume to release
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.VosRemsite"><I>function</I>&nbsp;<B>VosRemsite</B>&nbsp;(server, partition, vname) <P><UL><P> <P><I>Remove a replication site for a volume
+</I></P>
+<P>
+<LI TYPE=BULLET> server - The server where the volume is replicated
+<LI TYPE=BULLET> partition - The partition on server where the volume is replicated
+<LI TYPE=BULLET> vname - The volume name to unreplicate from server:/partition
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.VolnameFromMountpoint"><I>function</I>&nbsp;<B>VolnameFromMountpoint</B>&nbsp;(mpoint) <P><UL><P> <P><I>Given a path, return either the AFS volume name that is mounted
+        at that point or an empty string (which means the mount point is not
+</I></P>
+<LI TYPE=BULLET> proper AFS volume mount point)
+<P>
+<LI TYPE=BULLET> mpoint - A path
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.UnmountVolume"><I>function</I>&nbsp;<B>UnmountVolume</B>&nbsp;(mpoint) <P><UL><P> <P><I>Unmount a volume and return 0 on failure, or the name of the volume
+        unmounted on success
+</I></P>
+<P>
+<LI TYPE=BULLET> mpoint - The path to the volume's mountpoint
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.VosRemove"><I>function</I>&nbsp;<B>VosRemove</B>&nbsp;(server, partition, vname) <P><UL><P> <P><I>Remove a volume from a server and partition
+</I></P>
+<P>
+        Returns 0 on failure, 1 on success
+<P>
+<LI TYPE=BULLET> server - The server where vname resides
+<LI TYPE=BULLET> partition - The partition where vname resides
+<LI TYPE=BULLET> vname - The volume name to remove from server's partition
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.HoursOld"><I>function</I>&nbsp;<B>HoursOld</B>&nbsp;(fname) <P><UL><P> <P><I>Determine (in hours) how old a file is
+</I></P>
+<P>
+        Returns the hours (integer) or -1 on failure
+<P>
+<LI TYPE=BULLET> fname - The path to the file to examine
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.RunCommand"><I>function</I>&nbsp;<B>RunCommand</B>&nbsp;(command) <P><UL><P> <P><I>Run an OS-level command and return 0 on failure, 1 on success
+</I></P>
+<P>
+<LI TYPE=BULLET> command - The command to run
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.OutputBasedSuccessRunCommand"><I>function</I>&nbsp;<B>OutputBasedSuccessRunCommand</B>&nbsp;(command, searchstr) <P><UL><P> <P><I>Execute an OS-level command with stderr redirected to stdout, and
+        return 1 if searchstr is found in the output of command, 0 if not.
+</I></P>
+<P>
+<LI TYPE=BULLET> command - the command to run
+<LI TYPE=BULLET> searchstr - the string to find in the output to generate a
+                      successful return code
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="afs_utils.RunCommandReturnOutput"><I>function</I>&nbsp;<B>RunCommandReturnOutput</B>&nbsp;(command) <P><UL><P> <P><I>Execute a shell command with stderr redirected to stdout, and
+        return all lines of output as a list
+</I></P>
+<P>
+<LI TYPE=BULLET> command - the command to run
+ </P></UL></P></LI></UL><A NAME="afs_vldb"><H2>Module: afs_vldb</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_vldb.VLDBEntry"><I>class</I>&nbsp;<B>VLDBEntry</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_vldb.VLDBEntry.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(vname) <P><UL><P> <P><I>C-struct-like class to hold the volume information available
+            from a 'vos listvldb -name VOLNAME' call.
+</I></P>
+<P>
+<LI TYPE=BULLET> vname - A volume name
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry._setRWsite">-&nbsp;<I>method</I>&nbsp;<B>_setRWsite</B>&nbsp;(site) <P><UL><P> <P><I>Set the read-write site for this volume
+</I></P>
+<P>
+<LI TYPE=BULLET> site - A Site object
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry.getRWsite">-&nbsp;<I>method</I>&nbsp;<B>getRWsite</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry.addROsite">-&nbsp;<I>method</I>&nbsp;<B>addROsite</B>&nbsp;(site) <P><UL><P> <P><I>Add a read-only site to our list of read-only sites for this volume
+</I></P>
+<P>
+<LI TYPE=BULLET> site - A Site object
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry.getROsites">-&nbsp;<I>method</I>&nbsp;<B>getROsites</B>&nbsp;() <P><UL><P> <P><I>Get the list of read-only sites for this volume
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry._setROID">-&nbsp;<I>method</I>&nbsp;<B>_setROID</B>&nbsp;(id) <P><UL><P> <P><I>Set the read-only volume ID
+</I></P>
+<P>
+<LI TYPE=BULLET> id - The volume's read-only volume ID
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry.getROID">-&nbsp;<I>method</I>&nbsp;<B>getROID</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry._setRWID">-&nbsp;<I>method</I>&nbsp;<B>_setRWID</B>&nbsp;(id) <P><UL><P> <P><I>Set the read-write volume ID
+</I></P>
+<P>
+<LI TYPE=BULLET> id - The volume's read-write volume ID
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry.getRWID">-&nbsp;<I>method</I>&nbsp;<B>getRWID</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry._setBID">-&nbsp;<I>method</I>&nbsp;<B>_setBID</B>&nbsp;(id) <P><UL><P> <P><I>Set the backup volume ID
+</I></P>
+<P>
+<LI TYPE=BULLET> id - The volume's backup volume ID
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry.getBID">-&nbsp;<I>method</I>&nbsp;<B>getBID</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry.getVName">-&nbsp;<I>method</I>&nbsp;<B>getVName</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBEntry.printReport">-&nbsp;<I>method</I>&nbsp;<B>printReport</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI><LI TYPE=SQUARE><A NAME="afs_vldb.VLDBData"><I>class</I>&nbsp;<B>VLDBData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_vldb.VLDBData.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;() <P><UL><P> <P><I>Represent some VLDB (Volume Location Database) data.
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBData.load">-&nbsp;<I>method</I>&nbsp;<B>load</B>&nbsp;(**kwargs) <P><UL><P> <P><I>Load some VLDB information via 'vos listvldb'
+</I></P>
+<P>
+<LI TYPE=BULLET> kwargs - Keyword arguments in the form needed to be passed to the
+              'vos listvldb' command.  For example, calling 
+              VLDBData.load(server='foo', partition='c') will gather the
+              VLDB data for all volumes on server 'foo' partition 'c'.  See
+              the AFS 'vos' command for more information.
+<P>
+            Returns 0 on failure, 1 on successful load and parse
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBData._loadraw">-&nbsp;<I>method</I>&nbsp;<B>_loadraw</B>&nbsp;(kwargs) <P><UL><P> <P><I>Call 'vos listvldb' and actually load the data we need.  Called
+            by load().  Do not call this yourself.
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBData.addEntry">-&nbsp;<I>method</I>&nbsp;<B>addEntry</B>&nbsp;(entry) <P><UL><P> <P><I>Add a VLDBEntry object to our list.
+</I></P>
+<P>
+<LI TYPE=BULLET> entry - a VLDBEntry object
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBData.getEntries">-&nbsp;<I>method</I>&nbsp;<B>getEntries</B>&nbsp;() <P><UL><P> <P><I>Get a copy of our list of VLDBEntry objects
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vldb.VLDBData.printReport">-&nbsp;<I>method</I>&nbsp;<B>printReport</B>&nbsp;() <P><UL><P> <P><I>Print an ASCII report of our data
+</I></P>
+ </P></UL></P></P></UL></LI></UL><A NAME="afs_vosexamine"><H2>Module: afs_vosexamine</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_vosexamine.VosExamineData"><I>class</I>&nbsp;<B>VosExamineData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_vosexamine.VosExamineData.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(vname) <P><UL><P> <P><I>Represent some 'vos examine' data.
+</I></P>
+<P>
+<LI TYPE=BULLET> vname - A volume name
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.load">-&nbsp;<I>method</I>&nbsp;<B>load</B>&nbsp;() <P><UL><P> <P><I>Load the data based on the volume name passed to the constructor
+            when the object was instantiated.
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData._loadraw">-&nbsp;<I>method</I>&nbsp;<B>_loadraw</B>&nbsp;(vname) <P><UL><P> <P><I>Call 'vos examine' and actually load the data we need.  Called by
+            load().  Do not call this yourself. 
+</I></P>
+<P>
+<LI TYPE=BULLET> vname - A volume name
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.printReport">-&nbsp;<I>method</I>&nbsp;<B>printReport</B>&nbsp;() <P><UL><P> <P><I>Print an ASCII report to standard output
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getVLDBEntry">-&nbsp;<I>method</I>&nbsp;<B>getVLDBEntry</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData._setMaxQuota">-&nbsp;<I>method</I>&nbsp;<B>_setMaxQuota</B>&nbsp;(quota) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getMaxQuota">-&nbsp;<I>method</I>&nbsp;<B>getMaxQuota</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData._setCreationDate">-&nbsp;<I>method</I>&nbsp;<B>_setCreationDate</B>&nbsp;(datestring) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getCreationDate">-&nbsp;<I>method</I>&nbsp;<B>getCreationDate</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData._setLastUpdate">-&nbsp;<I>method</I>&nbsp;<B>_setLastUpdate</B>&nbsp;(datestring) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getLastUpdate">-&nbsp;<I>method</I>&nbsp;<B>getLastUpdate</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData._setLastDayAccesses">-&nbsp;<I>method</I>&nbsp;<B>_setLastDayAccesses</B>&nbsp;(num) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getLastDayAccesses">-&nbsp;<I>method</I>&nbsp;<B>getLastDayAccesses</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData._setState">-&nbsp;<I>method</I>&nbsp;<B>_setState</B>&nbsp;(statestring) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getState">-&nbsp;<I>method</I>&nbsp;<B>getState</B>&nbsp;() <P><UL><P> <P><I>Get the state of the volume (On-Line or Off-Line)
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData._setKUsed">-&nbsp;<I>method</I>&nbsp;<B>_setKUsed</B>&nbsp;(k) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getKUsed">-&nbsp;<I>method</I>&nbsp;<B>getKUsed</B>&nbsp;() <P><UL><P> <P><I>Get the number of 1-kilobyte-sized blocks used by this volume
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getVName">-&nbsp;<I>method</I>&nbsp;<B>getVName</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData._setBusy">-&nbsp;<I>method</I>&nbsp;<B>_setBusy</B>&nbsp;(flag) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vosexamine.VosExamineData.getBusy">-&nbsp;<I>method</I>&nbsp;<B>getBusy</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI></UL><A NAME="afs_voslistvol"><H2>Module: afs_voslistvol</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_voslistvol.VosListvolEntry"><I>class</I>&nbsp;<B>VosListvolEntry</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_voslistvol.VosListvolEntry.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(vname, vid, vtype, kused, status, server, partition) <P><UL><P> <P><I>C-struct-like class to hold a single volume's information as seen
+            in the output of a 'vos listvol' command.
+</I></P>
+<P>
+<LI TYPE=BULLET> vname - A volume name
+<LI TYPE=BULLET> vid - A volume ID
+<LI TYPE=BULLET> vtype - The volume type (BK/RW/RO)
+<LI TYPE=BULLET> kused - The K used by this volume
+<LI TYPE=BULLET> status - The volume's online status
+<LI TYPE=BULLET> server - A hostname
+<LI TYPE=BULLET> partition - An AFS 'vice' partition name
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolEntry.getKUsed">-&nbsp;<I>method</I>&nbsp;<B>getKUsed</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolEntry.getVType">-&nbsp;<I>method</I>&nbsp;<B>getVType</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolEntry.getStatus">-&nbsp;<I>method</I>&nbsp;<B>getStatus</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolEntry.getSite">-&nbsp;<I>method</I>&nbsp;<B>getSite</B>&nbsp;() <P><UL><P> <P><I>Get the Site object associated with this VosListvolEntry
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolEntry.getVName">-&nbsp;<I>method</I>&nbsp;<B>getVName</B>&nbsp;() <P><UL><P> <P><I>Get the volume name
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolEntry.getVID">-&nbsp;<I>method</I>&nbsp;<B>getVID</B>&nbsp;() <P><UL><P> <P><I>Get the volume ID
+</I></P>
+ </P></UL></P></P></UL></LI><LI TYPE=SQUARE><A NAME="afs_voslistvol.VosListvolData"><I>class</I>&nbsp;<B>VosListvolData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_voslistvol.VosListvolData.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(server, partition='') <P><UL><P> <P><I>Represent some 'vos listvol' data.
+</I></P>
+<P>
+<LI TYPE=BULLET> server - A hostname
+<LI TYPE=BULLET> partition - An AFS 'vice' partition (optional)
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData.load">-&nbsp;<I>method</I>&nbsp;<B>load</B>&nbsp;() <P><UL><P> <P><I>Load the data based on the server (and possibly partition) passed
+            to the constructor when the object was instantiated.
+</I></P>
+<P>
+            Returns 0 on failure, 1 on successful load and parse
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData._loadraw">-&nbsp;<I>method</I>&nbsp;<B>_loadraw</B>&nbsp;() <P><UL><P> <P><I>Call 'vos listvol' and actually load the data we need.  Called by
+            load().  Do not call this yourself.
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData.printReport">-&nbsp;<I>method</I>&nbsp;<B>printReport</B>&nbsp;() <P><UL><P> <P><I>Print an ASCII report to standard output
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData._setServer">-&nbsp;<I>method</I>&nbsp;<B>_setServer</B>&nbsp;(server) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData.getServer">-&nbsp;<I>method</I>&nbsp;<B>getServer</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData._setPartition">-&nbsp;<I>method</I>&nbsp;<B>_setPartition</B>&nbsp;(partition) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData.getPartition">-&nbsp;<I>method</I>&nbsp;<B>getPartition</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData.addEntry">-&nbsp;<I>method</I>&nbsp;<B>addEntry</B>&nbsp;(entry) <P><UL><P> <P><I>Add a VosListvolEntry object to our list.
+</I></P>
+<P>
+<LI TYPE=BULLET> entry - a VosListvolEntry object
+ </P></UL></P></P><P><A NAME="afs_voslistvol.VosListvolData.getEntries">-&nbsp;<I>method</I>&nbsp;<B>getEntries</B>&nbsp;() <P><UL><P> <P><I>Get a copy of our list of VosListvolEntry objects
+</I></P>
+ </P></UL></P></P></UL></LI></UL><A NAME="afs_vospartinfo"><H2>Module: afs_vospartinfo</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=SQUARE><A NAME="afs_vospartinfo.VosPartinfoEntry"><I>class</I>&nbsp;<B>VosPartinfoEntry</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_vospartinfo.VosPartinfoEntry.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(part, kfree, ktotaldisk) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoEntry.getPartition">-&nbsp;<I>method</I>&nbsp;<B>getPartition</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoEntry.getKFree">-&nbsp;<I>method</I>&nbsp;<B>getKFree</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoEntry.getKTotalDisk">-&nbsp;<I>method</I>&nbsp;<B>getKTotalDisk</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI><LI TYPE=SQUARE><A NAME="afs_vospartinfo.VosPartinfoData"><I>class</I>&nbsp;<B>VosPartinfoData</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><P><A NAME="afs_vospartinfo.VosPartinfoData.__init__">-&nbsp;<I>method</I>&nbsp;<B>__init__</B>&nbsp;(server, partition='') <P><UL><P> <P><I>Represent some 'vos partinfo' data.
+</I></P>
+<P>
+<LI TYPE=BULLET> server - An AFS file server hostname
+<LI TYPE=BULLET> partition - A partition on server (optional)
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoData.load">-&nbsp;<I>method</I>&nbsp;<B>load</B>&nbsp;() <P><UL><P> <P><I>Load the data based on the info passed to the constructor
+            when the object was instantiated.
+</I></P>
+<P>
+            Returns 0 on failure, 1 on successful load and parse
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoData._loadraw">-&nbsp;<I>method</I>&nbsp;<B>_loadraw</B>&nbsp;() <P><UL><P> <P><I>Call 'vos partinfo' and actually load the data we need.  Called by
+            load().  Do not call this yourself.
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoData.printReport">-&nbsp;<I>method</I>&nbsp;<B>printReport</B>&nbsp;() <P><UL><P> <P><I>Print an ASCII report to standard output
+</I></P>
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoData.getServer">-&nbsp;<I>method</I>&nbsp;<B>getServer</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoData.getPartition">-&nbsp;<I>method</I>&nbsp;<B>getPartition</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoData.addEntry">-&nbsp;<I>method</I>&nbsp;<B>addEntry</B>&nbsp;(entry) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P><P><A NAME="afs_vospartinfo.VosPartinfoData.getEntries">-&nbsp;<I>method</I>&nbsp;<B>getEntries</B>&nbsp;() <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></P></UL></LI></UL><A NAME="getopt_afs"><H2>Module: getopt_afs</H2> <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P><UL><LI TYPE=CIRCLE><A NAME="getopt_afs._opt_info"><I>function</I>&nbsp;<B>_opt_info</B>&nbsp;(opt, opts) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="getopt_afs._strip_opt_mung"><I>function</I>&nbsp;<B>_strip_opt_mung</B>&nbsp;(optname) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="getopt_afs._delete_opt"><I>function</I>&nbsp;<B>_delete_opt</B>&nbsp;(opt, opts) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="getopt_afs._parse_positional"><I>function</I>&nbsp;<B>_parse_positional</B>&nbsp;(args, opts, pairs=[]) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="getopt_afs._parse_keyed"><I>function</I>&nbsp;<B>_parse_keyed</B>&nbsp;(args, opts) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="getopt_afs._parse_keyed_1"><I>function</I>&nbsp;<B>_parse_keyed_1</B>&nbsp;(args, opts) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="getopt_afs._required_opts"><I>function</I>&nbsp;<B>_required_opts</B>&nbsp;(opts) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="getopt_afs._all_required_matched"><I>function</I>&nbsp;<B>_all_required_matched</B>&nbsp;(matches, opts) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI><LI TYPE=CIRCLE><A NAME="getopt_afs.getopt"><I>function</I>&nbsp;<B>getopt</B>&nbsp;(args, opts_1) <P><UL><P> <P><I></I></P>
+<P>
+ </P></UL></P></LI></UL><P ALIGN=CENTER><FONT SIZE=-1>Created by Doc-Tool V0.9 on Fri Apr  5 12:04:54 2002</FONT></P></BODY></HTML>

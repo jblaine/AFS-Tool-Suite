@@ -1,0 +1,43 @@
+1.3 -> 1.4 : ?/?/????
+    - Added code in repcheck to make sure there is at least a replica on the
+      same site as the RW if the volume is replicated.
+    - Added code in repcheck to determine if there is more than one replica
+      of a volume on the same server
+    - Fixed --help in volspot
+    - Fixed error checking in load() of afs_vospartinfo.py and return
+      code checking in afs_space_usage_db.py
+
+1.2 -> 1.3 : 4/4/2002
+    - Added afs_stats.py for parsing gather_committal_stats output and
+      producing reports (GIFs via gnuplot or ASCII right now)
+    - Added LockFile() and UnlockFile() to lib/afs_utils.py
+    - Implemented cache file locking in lib/afs_quotapartinfo.py
+
+1.1 -> 1.2 : 3/28/2002
+    - Added caching support to lib/afs_quotapartinfo.py
+    - Added caching support to bin/quota_partinfo (disabled with -nocache)
+    - Added proper command-line argument handling to bin/quota_partinfo
+    - Added -verbose flag to bin/quota_partinfo
+    - Fixed a bug in lib/afs_utils.FullPartitionName()
+    - Fixed several bugs in 'vrm' and made it a little more noisy about
+      what it's doing
+    - Added new binary/script 'gather_committal_stats'
+    - Fixed lib/* as needed to ignore error lines starting with the
+      string 'vsu_ClientInit' which is typically because the routine
+      is running an AFS command without tokens.  It's a warning.
+
+1.0 -> 1.1 : 1/30/2001
+    - quota_partinfo now does the right calculation when volumes are found
+      with no quota set.  That is, when a volume is found with quota of
+      0 (as reported by vos examine), then the whole partition size is
+      used as the quota for that volume.
+    - Fixed a bug in afs_vosexamine.py -> VosExamineData class where invalid
+      data would be stored when examining a volume which is currently busy
+    - Fixed afs_utils.py -> CheckQuotas to throw a warning message for those
+      volumes being checked who are busy and cannot be checked properly
+    - Fixed afs_quotapartinfo.py to throw a warning message for those
+      volumes being checked who are busy and cannot be checked properly
+    - Updated docs/index.html
+    - Sped up lib/afs_vldb.py VLDB parsing a tiny bit
+    - Updated BUGS document and moved it into docs dir
+    - Added docs/Thanks.txt

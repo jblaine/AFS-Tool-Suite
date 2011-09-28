@@ -1,0 +1,132 @@
+<HTML>
+<HEAD>
+    <TITLE>
+        The AFS Space Usage Policy Database
+    </TITLE>
+</HEAD>
+ 
+<BODY BGCOLOR=White TEXT=Black LINK=Black VLINK=Black>
+ 
+<CENTER>
+    <H2>The AFS Space Usage Policy Database</H2>
+</CENTER>
+
+<H2>Overview</H2>
+
+Some AFS Tool Suite scripts (<TT>volspot</TT> and <TT>afs_volspot_check</TT>
+to name two) need to know what suitable sites exist for different types of
+volumes (a site is a server and partition pair).
+
+For example, in your AFS cell, you may have decided on the convention that
+all user home directory volume names are prefixed with <TT>u.</TT>
+(as in <TT>u.jblaine</TT>).  You may also have decided that user home
+directory volumes should be on the following "sites":
+
+<PRE>
+    afsserver1.domain.com       /vicepc
+    afsserver2.domain.com       /vicepc
+    afsserver3.domain.com       /vicepg
+    afsserver3.domain.com       /viceph
+</PRE>
+
+Captzeusing your site's volume naming and partition layout information in a
+single place which can be queried allows you to enforce and check on those
+policies easily (with or without AFS Tool Suite).
+
+<H2>Format</H2>
+The format of the database (it's a standard text file) is Python <TT>ConfigParser</TT> format, which is pretty much identical to Windows' INI format.  It's pretty simple -- You have 4 possible items in the file:
+<OL>
+    <LI>Blank lines, which are ignored
+    <LI>Comment lines (line begins with a <TT>#</TT>), which are ignored
+    <LI>Section headings enclosed in brackets, such as <TT>[project]</TT>
+    <LI>Option=Value lines which belong to the most recently declared section heading (<TT>unixname=jblaine</TT> for example).
+</OL>
+In generic terms, it looks like this:
+<PRE>
+    # This is a comment and is ignored.
+    [section_name1]
+    unique_option1=value
+    ...
+    unique_optionN=value
+    
+    # The numbers used (1 - N) are not required.  I'm just showing
+    # that there can be many, and they have to be unique.
+    [section_nameN]
+    unique_option1=value
+    ...
+    unique_optionN=value
+</PRE>
+
+AFS Tool Suite recognizes three distinct option types:
+<OL>
+    <LI><TT>regexp</TT> - Specifies the regexp for this type of AFS volume.  This is used by ATS to make sure that volumes of a certain type are on the defined server:/partition pairs (and only those).  The regular expression should match the volume names for this type.
+    <LI><TT>replicated</TT> - Define this to be either 'yes' or 'no' (without quotes).  This is a flag indicating whether this volume type is expected to have replication set up or not.  It is not a flag that will automatically start doing anything on your behalf if set to 'yes', so don't worry.  It's only policy information for ATS to use while trying to make sense of your cell and its volumes.
+    <LI>Anything else.  Any option found in a section that is not one of the two above will be expected to be a site definition with a value of the format <TT>server_name:partition_name</TT>.  Some valid value examples are <TT>srv1.domain.com:/vicepb</TT>, <TT>ducky.domain.org:g</TT>, <TT>horsey:/vicepf</TT>
+</OL>
+
+<H2>Sample Database</H2>
+
+<PRE>
+    # As you can see below, it's not important that the options
+    # be in order or consecutive.  As I said before, they don't
+    # even have to have numbers in them, they just need to be unique.
+    [root]
+    regexp=root.+
+    replicated=yes
+    site1=hermes:a
+    site3=thor:a
+    site4=bones:a
+    site6=spock:a
+    site7=zeus:a
+
+    [afsws]
+    replicated=yes
+    regexp=.+\.afs\d+[a-zA-Z]+
+    site1=hermes:a
+    site3=thor:a
+    site6=spock:a
+    site7=zeus:a
+    site8=loki:a
+
+    [apps]
+    replicated=yes
+    regexp=apps\..+
+    site1=hermes:b
+    site3=thor:b
+    site7=zeus:a
+    site8=loki:a
+
+    [user]
+    replicated=no
+    regexp=u\..+
+    site1=hermes:c
+    site2=hermes:d
+    site4=hera:c
+    site7=thor:c
+
+    [proj]
+    replicated=no
+    regexp=proj\..+
+    site1=hermes:f
+    site2=hermes:g
+    site6=hera:f
+    site9=hera:i
+    site10=hera:j
+
+    [lang]
+    replicated=yes
+    regexp=lang\..+\..+(sun|lin|sgi).+
+    site1=hermes:l
+    site2=hera:l
+    site3=thor:l
+    site4=bones:l
+</PRE>
+
+<HR>
+<ADDRESS>
+    AFS Tool Suite by Jeff Blaine<BR>
+    (c) Copyright 2000 The MITRE Corporation
+</ADDRESS>
+
+</BODY>
+</HTML>
