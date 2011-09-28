@@ -1,4 +1,3 @@
-
                          "AFS Tool Suite" (ATS)
                              Jeff Blaine
                 (c) Copyright 2000 The MITRE Corporation
@@ -113,12 +112,3 @@ HISTORY
     release the software outside of MITRE under the GNU Public License.
 
     The MITRE Corporation retains the copyright to AFS Tool Suite.
-
-CONTACT
-=======
-
-    Home page:         http://www.sourceforge.net/projects/ats/
-
-    From the ATS homepage you will find a list of the current developers,
-    you can submit bug reports, join any mailing lists that exist concerning
-    ATS, etc.
