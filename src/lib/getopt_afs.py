@@ -1,8 +1,9 @@
 # This module provides the function getopt_afs.getopt()
 
 # Written by Justin Sheehy
+# Further modified by Jeff Blaine
 
-# getopt_afs, version 0.1
+# getopt_afs, version 0.2
 
 # Clearly, it is modeled after the standard module 'getopt', but
 # it attempts to add argument processing logic similar to that found
@@ -28,7 +29,7 @@
 #   it in this order: '=+'.  The reverse ('+=') will not work.  All 
 #   required args should precede all non-required args.
 
-# It raises the exception getopt_afs.error with a string argument 
+# It raises the exception getopt_afs with a string argument 
 # if it detects an error.
 
 # It returns two values:
@@ -38,8 +39,6 @@
 # (2) the list of remaining arguments (may be empty).
 
 import string, sys
-
-error = 'getopt_afs.error'
 
 # return tuple:
 #  0 -> valid_opt? (None, 0, 1)
@@ -129,13 +128,13 @@ def _parse_keyed_1(args, opts):
     arg = args[0][1:]
     valid, required, requires_arg, argname = _opt_info(arg, opts)
     if not valid:
-        raise error, 'invalid option name: %s' % arg
+        raise Exception('getopt_afs', 'invalid option name: %s' % arg)
     argval = '' 
     if len(args) > 1:
         argval = args[1]
     if argval != '' and argval[0] == '-': argval = ''
     if requires_arg and not argval:
-        raise error, 'option %s requires an argument' % argname
+        raise Exception('getops_afs', 'option %s requires an argument' % argname)
     curlist = [(argname, argval)]
     if argval:
         return curlist + _parse_keyed_1(args[2:], opts)
@@ -164,7 +163,7 @@ def getopt(args, opts_1):
     restlist, remainder = _parse_keyed(args, opts)
     biglist = frontlist + restlist
     if not _all_required_matched(biglist, opts_1):
-        raise error, 'not all required options were supplied'
+        raise Exception('getopt_afs', 'not all required options were supplied')
     biglist = map(lambda a: ('-' + a[0], a[1]), biglist)
     return biglist, remainder
 

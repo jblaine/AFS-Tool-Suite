@@ -54,7 +54,7 @@ partition = ''
 opts = ['server+', 'partition=', 'nocache', 'verbose', 'help', 'syslog']
 try:
     (pairs, restargs) = getopt_afs.getopt(sys.argv[1:], opts)
-except getopt_afs.error:
+except:
     Usage()
 for pair in pairs:
     (option, argument) = pair
