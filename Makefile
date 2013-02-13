@@ -22,7 +22,7 @@ PTS	=	$(AFSWS)/bin/pts
 #-----------------------------------------------------------------------------#
 
 PRODUCT	=	ats
-VERSION	=	1.4
+VERSION	=	1.5
 SRCDIR	=	./src
 BINS	=	repcheck.py volsanity.py volspot_check.py volspot.py \
 		pts_checker.sh quota_partinfo.py vrm.py \
